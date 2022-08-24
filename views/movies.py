@@ -7,7 +7,7 @@ from service.decorators import auth_required, admin_required
 
 movie_ns = Namespace('movies')
 
-
+# Эндпоинт для получения всех фильмов и добавления с разными правами
 @movie_ns.route('/')
 class MoviesView(Resource):
     @auth_required
@@ -30,7 +30,7 @@ class MoviesView(Resource):
         movie = movie_service.create(req_json)
         return "", 201, {"location": f"/movies/{movie.id}"}
 
-
+# Эндпоинт для получения одного фильма и добавления, удаления с разными правами
 @movie_ns.route('/<int:bid>')
 class MovieView(Resource):
     @auth_required

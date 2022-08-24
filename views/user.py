@@ -6,7 +6,7 @@ from implemented import user_service
 
 user_ns = Namespace('users')
 
-
+# Эндпоинт юзера
 @user_ns.route('/')
 class AuthView(Resource):
 

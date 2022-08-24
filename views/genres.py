@@ -7,7 +7,7 @@ from service.decorators import auth_required, admin_required
 
 genre_ns = Namespace('genres')
 
-
+# Эндпоинт для получения всех жанров и добавления с разными правами
 @genre_ns.route('/')
 class GenresView(Resource):
     @auth_required
@@ -21,7 +21,7 @@ class GenresView(Resource):
         data = request.json
         return GenreSchema().dump(genre_service.create(data)), 201
 
-
+# Эндпоинт для получения одного жанра и добавления, удаления с разными правами
 @genre_ns.route('/<int:rid>')
 class GenreView(Resource):
     @auth_required

@@ -7,7 +7,7 @@ from service.decorators import auth_required, admin_required
 
 director_ns = Namespace('directors')
 
-
+# Эндпоинт для получения всех режиссеров и добавления с разными правами
 @director_ns.route('/')
 class DirectorsView(Resource):
     @auth_required
@@ -21,7 +21,7 @@ class DirectorsView(Resource):
         data = request.json
         return DirectorSchema().dump(director_service.create(data)), 201
 
-
+# Эндпоинт для получения одного режиссера и добавления, удаления с разными правами
 @director_ns.route('/<int:rid>')
 class DirectorView(Resource):
     @auth_required

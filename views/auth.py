@@ -7,7 +7,7 @@ from service.auth import generate_token, approve_token
 
 auth_ns = Namespace('auth')
 
-
+ # Эндпоинт аунтификации
 @auth_ns.route('/')
 class AuthView(Resource):
 
